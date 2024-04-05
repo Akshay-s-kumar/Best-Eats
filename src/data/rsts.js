@@ -60,7 +60,7 @@ const fetchDataForLocations = async (locations, locationName) => {
     }
   }
 
-  return locationResponses.flat(); // Flatten the array before returning
+  return locationResponses;
 };
 
 // Fetch data for each location and assign it to a different variable
@@ -68,7 +68,7 @@ const kozhikodeData = await fetchDataForLocations(kozhikodeLocations, 'Kozhikode
 const kochiData = await fetchDataForLocations(kochiLocations, 'Kochi');
 const bangaloreData = await fetchDataForLocations(bangaloreLocations, 'Bangalore');
 
-// Concatenate all data arrays
-const flattenedData = [...kozhikodeData, ...kochiData, ...bangaloreData];
+// Flatten the nested arrays
+const flattenedData = [...kozhikodeData, ...kochiData, ...bangaloreData].flat();
 
 export { flattenedData };
